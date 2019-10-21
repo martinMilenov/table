@@ -4,5 +4,5 @@ export default {
     lastName: '',
     dateOfBirth: '',
     age: '',
-    gender: 'f'
+    gender: ''
 }

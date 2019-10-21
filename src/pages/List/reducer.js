@@ -3,21 +3,21 @@ import { actionTypes }  from './actions';
 
 const list = (state = defaultState, action) => {
     switch (action.type) {
-      case actionTypes.ADD_MOCK: {
-        state = {
+      case actionTypes.ADD: {
+          state = {
             users: [
                 ...state.users,
                 {
-                    firstName: "Sara",
-                    secondName: "Jason",
-                    lastName: "Conner",
-                    age: 25,
-                    gender: "F",
-                    dateOfBirth: new Date("1996-10-18")
+                    firstName: action.firstName,
+                    secondName: action.secondName,
+                    lastName: action.lastName,
+                    dateOfBirth: action.dateOfBirth,
+                    age: action.age,
+                    gender: action.gender
                 }
             ]
-        };
-        return state;
+          }
+          return state;
       }
       default: {
         return state;

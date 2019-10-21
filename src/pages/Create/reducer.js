@@ -16,6 +16,9 @@ const createForm = (state = defaultState, action) => {
         state[action.key] = action.value;
         return state;
     }
+    case actionTypes.CLEAR_FIELD: {
+        state = defaultState;
+    }
     default: {
       return state;
     }
