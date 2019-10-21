@@ -4,7 +4,7 @@ export default {
         secondName: "Ivanov",
         lastName: "Milenov",
         age: 30,
-        gender: "M",
+        gender: "m",
         dateOfBirth: new Date("1989-05-01")
     },
     {
@@ -12,7 +12,7 @@ export default {
         secondName: "Jason",
         lastName: "Conner",
         age: 25,
-        gender: "F",
+        gender: "f",
         dateOfBirth: new Date("1996-10-18")
     },
     {
@@ -20,7 +20,7 @@ export default {
         secondName: "Georgiev",
         lastName: "Petrov",
         age: 29,
-        gender: "M",
+        gender: "m",
         dateOfBirth: new Date("1990-04-05")
     }
     ]

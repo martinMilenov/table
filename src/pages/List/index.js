@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Grid from '../../components/Grid'
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {clearField} from '../Create/actions';
 
 
 const dataMapper = {
@@ -10,12 +9,10 @@ const dataMapper = {
     dateOfBirth: (value) => {return `${value.getFullYear()}-${value.getMonth()+1}-${value.getDate()}`}
 }
 
-
 class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-         
 
             headers: [{
                     label: "First Name",
@@ -50,8 +47,6 @@ class List extends Component {
                 },
 
             ]
-            
-
         }; 
     }
 
@@ -60,7 +55,7 @@ class List extends Component {
         history.push({
             pathname: '/add'
         });
-        this.props.clearField();
+        
     }
 
     render() {
@@ -75,10 +70,6 @@ class List extends Component {
     }
 }
 
-// const mapStateToProps =(state) => ({
-//     a:1
-// })
-
 const mapStateToProps =(state) => {
     return {
         users: state.list.users,
@@ -87,7 +78,7 @@ const mapStateToProps =(state) => {
 }
 
 const mapDispatchToProps = {
-    clearField,
+   
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(List));

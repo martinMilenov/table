@@ -3,17 +3,16 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setField } from './actions';
 import { add } from '../List/actions';
+import { clearField } from './actions';
 
 
 class Create extends Component {
     
     handleChange = (e) => {
-        // this.setState({ [e.target.name]: e.target.value, selectOption: e.target.value })
         this.props.setField({
             key: e.target.name,
             value: e.target.value,
         })
-        // console.log(e.target.value)
     }
    
     handleAddData = () => {
@@ -25,6 +24,8 @@ class Create extends Component {
             age: this.props.age,
             gender: this.props.gender
         })
+
+        this.props.clearField();
 
         let { history } = this.props;
         history.push({
@@ -68,6 +69,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     setField,
     add,
+    clearField
 
 }
 
