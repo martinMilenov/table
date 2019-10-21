@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {setField} from './actions';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setField } from './actions';
+import { add } from '../List/actions';
+import { clearField } from './actions';
 
 
 class Create extends Component {
     
     handleChange = (e) => {
-        // this.setState({ [e.target.name]: e.target.value, selectOption: e.target.value })
         this.props.setField({
             key: e.target.name,
             value: e.target.value,
         })
-        // console.log(e.target.value)
     }
    
     handleAddData = () => {
+        this.props.add({
+            firstName: this.props.firstName,
+            secondName: this.props.secondName,
+            lastName: this.props.lastName,
+            dateOfBirth: new Date(this.props.dateOfBirth),
+            age: this.props.age,
+            gender: this.props.gender
+        })
+
+        this.props.clearField();
+
         let { history } = this.props;
         history.push({
             pathname: '/list'
@@ -56,7 +67,10 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    setField
+    setField,
+    add,
+    clearField
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)( withRouter(Create));

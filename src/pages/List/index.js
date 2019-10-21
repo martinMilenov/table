@@ -2,20 +2,17 @@ import React, {Component} from "react";
 import Grid from '../../components/Grid'
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {addMock} from './actions';
 
 
 const dataMapper = {
-    gender: (value) => { return value==='M' ? 'Male' : 'Female'  },
+    gender: (value) => { return value==='m' ? 'Male' : 'Female'  },
     dateOfBirth: (value) => {return `${value.getFullYear()}-${value.getMonth()+1}-${value.getDate()}`}
 }
-
 
 class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-         
 
             headers: [{
                     label: "First Name",
@@ -50,17 +47,15 @@ class List extends Component {
                 },
 
             ]
-            
-
         }; 
     }
 
     handleAddtoList = () => {
-        // let { history } = this.props;
-        // history.push({
-        //     pathname: '/add'
-        // });
-        this.props.addMock();
+        let { history } = this.props;
+        history.push({
+            pathname: '/add'
+        });
+        
     }
 
     render() {
@@ -75,18 +70,15 @@ class List extends Component {
     }
 }
 
-// const mapStateToProps =(state) => ({
-//     a:1
-// })
-
 const mapStateToProps =(state) => {
     return {
-        users: state.list.users
+        users: state.list.users,
+        
     };
 }
 
 const mapDispatchToProps = {
-    addMock
+   
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(List));
