@@ -101,7 +101,7 @@ input[type="radio"]:first-child {
 input[type="button"] {
   border: none;
   height: 40px;
-  width: 26%;
+  width: 31%;
   margin-top: -120px;
   background: rgb(37, 151, 189);
   cursor: pointer;

@@ -6,7 +6,6 @@ import { add } from '../List/actions';
 import { clearField } from './actions';
 
 
-
 class Create extends Component {
     
     handleChange = (e) => {
