@@ -13,4 +13,3 @@ export const add = (params) => {
         gender: params.gender
     }
 }
-

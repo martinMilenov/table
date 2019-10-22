@@ -56,12 +56,12 @@ class Create extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        firstName: state.createForm.firstName,
-        secondName: state.createForm.secondName,
-        lastName: state.createForm.lastName,
-        dateOfBirth: state.createForm.dateOfBirth,
-        age: state.createForm.age,
-        gender: state.createForm.gender 
+        firstName: state.createForm.get('firstName'),
+        secondName: state.createForm.get('secondName'),
+        lastName: state.createForm.get('lastName'),
+        dateOfBirth: state.createForm.get('dateOfBirth'),
+        age: state.createForm.get('age'),
+        gender: state.createForm.get('gender') 
         
     }
 }

@@ -1,4 +1,7 @@
-export default {
+import { fromJS } from "immutable"
+import defaultState from "../Create/defaultState"
+
+export default fromJS({
     users: [{
         firstName: "Martin",
         secondName: "Ivanov",
@@ -24,4 +27,5 @@ export default {
         dateOfBirth: new Date("1990-04-05")
     }
     ]
-}
+});
+console.log(fromJS(defaultState))

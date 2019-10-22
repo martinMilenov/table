@@ -72,8 +72,7 @@ class List extends Component {
 
 const mapStateToProps =(state) => {
     return {
-        users: state.list.users,
-        
+        users: state.list.get('users').toJS(),
     };
 }
 
