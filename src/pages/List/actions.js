@@ -1,10 +1,15 @@
 export const actionTypes =  {
-    ADD_MOCK: Symbol("ADD_MOCK")
+    ADD: Symbol("ADD")
 }
 
-export const addMock = () => {
+export const add = (params) => {
     return {
-        type: actionTypes.ADD_MOCK
+        type: actionTypes.ADD,
+        firstName: params.firstName,
+        secondName: params.secondName,
+        lastName: params.lastName,
+        dateOfBirth: params.dateOfBirth,
+        age: params.age,
+        gender: params.gender
     }
 }
-

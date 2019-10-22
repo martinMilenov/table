@@ -1,28 +1,27 @@
 import defaultState from './defaultState';
 import { actionTypes }  from './actions';
+import { fromJS, List } from "immutable"
+
 
 const list = (state = defaultState, action) => {
     switch (action.type) {
-      case actionTypes.ADD_MOCK: {
-        state = {
-            users: [
-                ...state.users,
-                {
-                    firstName: "Sara",
-                    secondName: "Jason",
-                    lastName: "Conner",
-                    age: 25,
-                    gender: "F",
-                    dateOfBirth: new Date("1996-10-18")
-                }
-            ]
-        };
-        return state;
+      case actionTypes.ADD: {
+        const user = 
+          fromJS({
+            firstName: action.firstName,
+            secondName: action.secondName,
+            lastName: action.lastName,
+            dateOfBirth: action.dateOfBirth,
+            age: action.age,
+            gender: action.gender
+          })
+          return state.set('users', state.get('users', List()).push(user));
+  
       }
       default: {
         return state;
       }
     }
   };
-  
+
   export default list;
