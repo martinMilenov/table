@@ -6,6 +6,33 @@ import { add } from '../List/actions';
 import { clearField } from './actions';
 
 
+const citys = [
+    {
+        label: "Sofia",
+        value: "sofia",
+    },
+
+    {
+        label: "Plovdiv",
+        value: "plovdiv"
+    },
+
+    {
+        label: "Varna",
+        value: "varna"
+    },
+
+    {
+        label: "Burgas",
+        value: "burgas"
+    },
+    
+    {
+        label: "Pleven",
+        value: "pleven"
+    }
+]
+
 class Create extends Component {
     
     handleChange = (e) => {
@@ -22,6 +49,7 @@ class Create extends Component {
             lastName: this.props.lastName,
             dateOfBirth: new Date(this.props.dateOfBirth),
             age: this.props.age,
+            citys: this.props.citys,
             gender: this.props.gender
         })
 
@@ -42,6 +70,15 @@ class Create extends Component {
                 <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} value={this.props.lastName} />
                 <input type="text" name="dateOfBirth" placeholder="Date of Birth" onChange={this.handleChange} value={this.props.dateOfBirth} />
                 <input type="number" name="age" placeholder="Age" onChange={this.handleChange} value={this.props.age} />
+                <div className="select">
+                    <select name="citys" onChange={this.handleChange} value={this.props.citys}>
+                        <option value="" disabled selected>Select your option</option>
+                       {citys.map((city, i) => (
+                           <option key={i} value={city.value}>{city.label}</option>
+                       ))}
+                      
+                    </select>
+                </div>
                 <div>
                     <input type="radio" name="gender" value="m"  checked={this.props.gender === 'm'} onChange={this.handleChange} />
                     <label>M</label>
@@ -61,7 +98,8 @@ const mapStateToProps = (state) => {
         lastName: state.createForm.get('lastName'),
         dateOfBirth: state.createForm.get('dateOfBirth'),
         age: state.createForm.get('age'),
-        gender: state.createForm.get('gender') 
+        gender: state.createForm.get('gender'),
+        citys: state.createForm.get('citys') 
         
     }
 }
