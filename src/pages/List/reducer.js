@@ -13,7 +13,8 @@ const list = (state = defaultState, action) => {
             lastName: action.lastName,
             dateOfBirth: action.dateOfBirth,
             age: action.age,
-            gender: action.gender
+            gender: action.gender,
+            citys: action.citys
           })
           return state.set('users', state.get('users', List()).push(user));
   

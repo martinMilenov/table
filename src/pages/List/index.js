@@ -45,6 +45,11 @@ class List extends Component {
                     value: 'gender',
                     id: 6
                 },
+                {
+                    label: "City",
+                    value: 'citys',
+                    id: 6
+                },
 
             ]
         }; 
@@ -64,7 +69,7 @@ class List extends Component {
             <Grid data = {this.props.users} headers = {this.state.headers}
                 dataMapper={dataMapper}
             />  
-            <input type="button" value="Add" onClick={this.handleAddtoList}/>
+            <input className="list-btn" type="button" value="Add" onClick={this.handleAddtoList}/>
         </div >
         );
     }
