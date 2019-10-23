@@ -72,9 +72,9 @@ class Create extends Component {
                 <input type="number" name="age" placeholder="Age" onChange={this.handleChange} value={this.props.age} />
                 <div className="select">
                     <select name="citys" onChange={this.handleChange} value={this.props.citys}>
-                        <option value="" disabled selected>Select your option</option>
-                       {citys.map((city, i) => (
-                           <option key={i} value={city.value}>{city.label}</option>
+                        <option value="" disabled selected>Select your option</option> 
+                        {citys.map((city, i) => (
+                            <option key={i}>{city.label}</option>
                        ))}
                       
                     </select>

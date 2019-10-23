@@ -31,4 +31,3 @@ export default fromJS({
     }
     ]
 });
-console.log(fromJS(defaultState))
