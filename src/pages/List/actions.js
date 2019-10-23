@@ -10,6 +10,7 @@ export const add = (params) => {
         lastName: params.lastName,
         dateOfBirth: params.dateOfBirth,
         age: params.age,
-        gender: params.gender
+        gender: params.gender,
+        citys: params.citys
     }
 }
