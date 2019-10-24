@@ -33,6 +33,14 @@ class Create extends Component {
         });   
     }
 
+    changePath = () => {
+        
+        let { history } = this.props;
+        history.push({
+            pathname: '/city'
+        }); 
+    }
+
 
     render() {
         return (
@@ -42,13 +50,23 @@ class Create extends Component {
                 <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} value={this.props.lastName} />
                 <input type="text" name="dateOfBirth" placeholder="Date of Birth" onChange={this.handleChange} value={this.props.dateOfBirth} />
                 <input type="number" name="age" placeholder="Age" onChange={this.handleChange} value={this.props.age} />
-                <div>
+                <div className="select">
+                    <select name="citys" onChange={this.handleChange} value={this.props.citys}>
+                        <option value="" disabled selected>Select your option</option> 
+                        {this.props.citys.map((city, i) => (
+                            <option key={i}>{city.label}</option>
+                       ))}
+                       
+                    </select>
+                    <input className="addCity" type="button" value="Add..." onClick={this.changePath}/>        
+                </div>
+                <div className="radio">
                     <input type="radio" name="gender" value="m"  checked={this.props.gender === 'm'} onChange={this.handleChange} />
                     <label>M</label>
                     <input type="radio" name="gender" value="f" checked={this.props.gender === 'f'} onChange={this.handleChange} />
                     <label>F</label>
                 </div>
-                <input type="button" value="Add" onClick={this.handleAddData} />
+                <input className="mainBtn" type="button" value="Add" onClick={this.handleAddData} />
             </form>
         )
     }
@@ -61,7 +79,10 @@ const mapStateToProps = (state) => {
         lastName: state.createForm.get('lastName'),
         dateOfBirth: state.createForm.get('dateOfBirth'),
         age: state.createForm.get('age'),
-        gender: state.createForm.get('gender') 
+        gender: state.createForm.get('gender'),
+        citys: state.newCity.get('citys').toJS()
+
+
         
     }
 }
@@ -69,9 +90,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     setField,
     add,
-    clearField
+    clearField,
 
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)( withRouter(Create));
-// export default Create;
+

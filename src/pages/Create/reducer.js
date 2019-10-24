@@ -9,9 +9,6 @@ const createForm = (state = defaultState, action) => {
     case actionTypes.CLEAR_FIELD: {
         state = defaultState;
     }
-    case actionTypes.CLEAR_FIELD: {
-        state = defaultState;
-    }
     default: {
       return state;
     }

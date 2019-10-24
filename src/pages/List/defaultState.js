@@ -1,5 +1,4 @@
 import { fromJS } from "immutable"
-import defaultState from "../Create/defaultState"
 
 export default fromJS({
     users: [{
@@ -28,4 +27,3 @@ export default fromJS({
     }
     ]
 });
-console.log(fromJS(defaultState))
