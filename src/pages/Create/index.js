@@ -6,6 +6,33 @@ import { add } from '../List/actions';
 import { clearField } from './actions';
 
 
+const citys = [
+    {
+        label: "Sofia",
+        value: "sofia",
+    },
+
+    {
+        label: "Plovdiv",
+        value: "plovdiv"
+    },
+
+    {
+        label: "Varna",
+        value: "varna"
+    },
+
+    {
+        label: "Burgas",
+        value: "burgas"
+    },
+    
+    {
+        label: "Pleven",
+        value: "pleven"
+    }
+]
+
 class Create extends Component {
     
     handleChange = (e) => {
@@ -22,6 +49,7 @@ class Create extends Component {
             lastName: this.props.lastName,
             dateOfBirth: new Date(this.props.dateOfBirth),
             age: this.props.age,
+            citys: this.props.citys,
             gender: this.props.gender
         })
 
