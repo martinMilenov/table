@@ -6,6 +6,7 @@ import Create from './pages/Create/index';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
+import AddCity from "./pages/AddCity";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           // component={Create} 
           >
             <Create />
+          </Route>
+          <Route path="/city">
+            <AddCity/>
           </Route>
         </Switch>
       </Router>

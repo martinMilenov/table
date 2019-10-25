@@ -11,6 +11,6 @@ export const add = (params) => {
         dateOfBirth: params.dateOfBirth,
         age: params.age,
         gender: params.gender,
-        citys: params.citys
+        city: params.city
     }
 }
