@@ -4,35 +4,6 @@ import { connect } from 'react-redux';
 import { setField } from './actions';
 import { add } from '../List/actions';
 import { clearField } from './actions';
-
-
-const citys = [
-    {
-        label: "Sofia",
-        value: "sofia",
-    },
-
-    {
-        label: "Plovdiv",
-        value: "plovdiv"
-    },
-
-    {
-        label: "Varna",
-        value: "varna"
-    },
-
-    {
-        label: "Burgas",
-        value: "burgas"
-    },
-    
-    {
-        label: "Pleven",
-        value: "pleven"
-    }
-]
-
 class Create extends Component {
     
     handleChange = (e) => {
@@ -49,7 +20,7 @@ class Create extends Component {
             lastName: this.props.lastName,
             dateOfBirth: new Date(this.props.dateOfBirth),
             age: this.props.age,
-            citys: this.props.citys,
+            city: this.props.city,
             gender: this.props.gender
         })
 
@@ -79,7 +50,7 @@ class Create extends Component {
                 <input type="text" name="dateOfBirth" placeholder="Date of Birth" onChange={this.handleChange} value={this.props.dateOfBirth} />
                 <input type="number" name="age" placeholder="Age" onChange={this.handleChange} value={this.props.age} />
                 <div className="select">
-                    <select name="citys" onChange={this.handleChange} value={this.props.citys}>
+                    <select name="city" onChange={this.handleChange} value={this.props.city}>
                         <option value="" disabled selected>Select your option</option> 
                         {this.props.citys.map((city, i) => (
                             <option key={i}>{city.label}</option>
@@ -108,10 +79,8 @@ const mapStateToProps = (state) => {
         dateOfBirth: state.createForm.get('dateOfBirth'),
         age: state.createForm.get('age'),
         gender: state.createForm.get('gender'),
-        citys: state.newCity.get('citys').toJS()
-
-
-        
+        city: state.createForm.get('city'),
+        citys: state.newCity.get('citys').toJS(),  
     }
 }
 

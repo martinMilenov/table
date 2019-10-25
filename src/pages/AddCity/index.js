@@ -1,22 +1,24 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {setField} from '../Create/actions';
-// import {clearField} from '../Create/action';
+import {changeField} from './action';
+import {addCity} from './action';
 
 class AddCity extends Component {
 
     handleChange = (e) => {
-        this.props.setField({
-            key: e.target.name,
-            value: e.target.value
-        })
-        console.log(e.target.value)
+      this.props.changeField({
+        key: e.target.name,
+        value: e.target.value
+      })
     }
+    
 
-    handleAddCity = () => {
+    handleAddCity = (e) => {
 
-        // this.props.clearField();
+        this.props.addCity({
+            label: this.props.city
+        })
 
         let { history } = this.props;
         history.push({
@@ -28,7 +30,7 @@ class AddCity extends Component {
         return (
             <div>
                 <form>
-                    <input type="text" name="city" placeholder="Add City" value={this.props.city} onChange={this.handleChange}></input>
+                    <input type="text" name="city" placeholder="Add City" onChange={this.handleChange} value={this.props.city}></input>
                     <input type="button" value="Add..." onClick={this.handleAddCity}></input>
                 </form>
             </div>
@@ -38,14 +40,13 @@ class AddCity extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        city: state.newCity.get("city"),
-        citys: state.newCity.get('citys').toJS()
+        city: state.newCity.get("city")
     }
 }
 
 const mapDispatchToProps = {
-    setField
-    // clearField
+    changeField,
+    addCity
 }
 
 

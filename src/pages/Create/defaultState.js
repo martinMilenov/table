@@ -7,6 +7,6 @@ import { fromJS } from "immutable"
     dateOfBirth: '',
     age: '',
     gender: '',
-    citys: ''
+    city: ''
 })
  

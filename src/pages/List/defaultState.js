@@ -8,7 +8,7 @@ export default fromJS({
         age: 30,
         gender: "m",
         dateOfBirth: new Date("1989-05-01"),
-        citys: "Sofia"
+        city: "Sofia"
     },
     {
         firstName: "Sara",
@@ -17,7 +17,7 @@ export default fromJS({
         age: 25,
         gender: "f",
         dateOfBirth: new Date("1996-10-18"),
-        citys: "Varna"
+        city: "Varna"
     },
     {
         firstName: "Nikolai",
@@ -26,7 +26,7 @@ export default fromJS({
         age: 29,
         gender: "m",
         dateOfBirth: new Date("1990-04-05"),
-        citys: "Pleven"
+        city: "Pleven"
     }
     ]
 });
