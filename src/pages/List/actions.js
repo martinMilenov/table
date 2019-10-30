@@ -1,5 +1,6 @@
 export const actionTypes =  {
-    ADD: Symbol("ADD")
+    ADD: Symbol("ADD"),
+    FETCH: Symbol("FETCH"),
 }
 
 export const add = (params) => {
@@ -12,5 +13,13 @@ export const add = (params) => {
         age: params.age,
         gender: params.gender,
         city: params.city
+    }
+}
+
+export const fetch = () => {
+    return {
+        type: actionTypes.FETCH,
+        request: 'towns',
+        method: 'GET'
     }
 }
