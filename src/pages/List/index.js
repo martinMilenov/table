@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Grid from '../../components/Grid'
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { fetch } from './actions';
+import { fetch, get } from './actions';
 
 const dataMapper = {
     gender: (value) => { return value==='m' ? 'Male' : 'Female'  },
@@ -11,7 +11,8 @@ const dataMapper = {
 
 class List extends Component {
     componentDidMount() {
-        this.props.fetch();
+        // this.props.fetch(); // will get all the towns. try it out ;)
+        this.props.get({townId: 2}); // will get only one town
     }
     constructor(props) {
         super(props);
@@ -85,7 +86,8 @@ const mapStateToProps =(state) => {
 }
 
 const mapDispatchToProps = {
-    fetch
+    fetch,
+    get
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(List));

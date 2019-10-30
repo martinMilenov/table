@@ -1,6 +1,7 @@
 export const actionTypes =  {
     ADD: Symbol("ADD"),
     FETCH: Symbol("FETCH"),
+    GET: Symbol("GET"),
 }
 
 export const add = (params) => {
@@ -20,6 +21,14 @@ export const fetch = () => {
     return {
         type: actionTypes.FETCH,
         request: 'towns',
+        method: 'GET'
+    }
+}
+
+export const get = (params) => {
+    return {
+        type: actionTypes.GET,
+        request: `towns/${params.townId}`,
         method: 'GET'
     }
 }
