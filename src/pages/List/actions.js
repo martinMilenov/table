@@ -20,15 +20,15 @@ export const add = (params) => {
 export const fetch = () => {
     return {
         type: actionTypes.FETCH,
-        request: 'towns',
-        method: 'GET'
+        request: 'persons',
+        method: 'GET',
     }
 }
 
 export const get = (params) => {
     return {
         type: actionTypes.GET,
-        request: `towns/${params.townId}`,
+        request: `persons/${params.personId}`,
         method: 'GET'
     }
 }

@@ -11,8 +11,8 @@ const dataMapper = {
 
 class List extends Component {
     componentDidMount() {
-        // this.props.fetch(); // will get all the towns. try it out ;)
-        this.props.get({townId: 2}); // will get only one town
+        this.props.fetch(); // will get all the towns. try it out ;)
+        // this.props.get({townId: 5}); // will get only one town
     }
     constructor(props) {
         super(props);
@@ -71,7 +71,7 @@ class List extends Component {
         return ( 
         <div className="row">
             <Grid data = {this.props.users} headers = {this.state.headers}
-                dataMapper={dataMapper} 
+                dataMapper={dataMapper} persons={this.props.persons}
             />  
             <input className="list-btn" type="button" value="Add" onClick={this.handleAddtoList}/>
         </div >
