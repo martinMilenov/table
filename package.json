@@ -2,6 +2,7 @@
   "name": "table",
   "version": "0.1.0",
   "private": true,
+  "proxy" : "localhost:9999",
   "dependencies": {
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",
@@ -10,7 +11,9 @@
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "xhr-promise": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
