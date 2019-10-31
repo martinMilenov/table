@@ -4,8 +4,14 @@ import { connect } from 'react-redux';
 import { setField } from './actions';
 import { add } from './actions';
 import { clearField } from './actions';
+import { fetchTowns } from '../AddCity/action'
+
+
 class Create extends Component {
-    
+    componentDidMount(){
+        this.props.fetchTowns()
+    }
+
     handleChange = (e) => {
         this.props.setField({
             key: e.target.name,
@@ -88,7 +94,7 @@ const mapDispatchToProps = {
     setField,
     add,
     clearField,
-
+    fetchTowns
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)( withRouter(Create));

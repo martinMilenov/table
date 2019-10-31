@@ -1,7 +1,7 @@
 export const actionTypes = {
     SET_FIELD: Symbol("SET_FIELD"),
     ADD: Symbol("ADD"),
-    CLEAR_FIELD: Symbol("CLEAR_FIELD")
+    CLEAR_FIELD: Symbol("CLEAR_FIELD"),
 }
 
 
@@ -27,3 +27,5 @@ export const clearField = () => {
         type: actionTypes.CLEAR_FIELD
     }
 }
+
+

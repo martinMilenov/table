@@ -1,6 +1,7 @@
 import defaultState from './defaultState';
 import {actionTypes} from './action';
 import { fromJS, List } from "immutable"
+import { FINISHED } from '../../constants';
 
 const newCity = (state = defaultState, action) => {
     switch(action.type) {
@@ -16,6 +17,18 @@ const newCity = (state = defaultState, action) => {
             })
             return state.set('citys', state.get('citys', List()).push(city)).set('city', '');
         }
+        case actionTypes.FETCH_TOWNS: {
+            if(action.state === FINISHED) {
+              let res = action.response;
+              res = res.map(town => {
+                return town
+                .set('label', town.get('name'))
+                .set('value', town.get('id'))
+              });
+              return state.set('citys', res)
+            }
+            return state
+          }
         default: {
             return state;
         }
