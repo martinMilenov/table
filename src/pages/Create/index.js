@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setField } from './actions';
-import { add } from '../List/actions';
+import { add } from './actions';
 import { clearField } from './actions';
 class Create extends Component {
     
@@ -18,10 +18,10 @@ class Create extends Component {
             firstName: this.props.firstName,
             secondName: this.props.secondName,
             lastName: this.props.lastName,
-            dateOfBirth: new Date(this.props.dateOfBirth),
-            age: this.props.age,
-            city: this.props.city,
-            gender: this.props.gender
+            age: parseInt(this.props.age),
+            sex: this.props.gender,
+            dateOfBirth: new Date(this.props.dateOfBirth).toUTCString(),
+            city: this.props.city, 
         })
 
         this.props.clearField();

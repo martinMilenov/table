@@ -6,19 +6,6 @@ import { FINISHED } from '../../constants'
 
 const list = (state = defaultState, action) => {
     switch (action.type) {
-      case actionTypes.ADD: {
-        const user = 
-          fromJS({
-            firstName: action.firstName,
-            secondName: action.secondName,
-            lastName: action.lastName,
-            dateOfBirth: action.dateOfBirth,
-            age: action.age,
-            gender: action.gender,
-            city: action.city
-          })
-          return state.set('users', state.get('users', List()).push(user));
-      }
       case actionTypes.FETCH: {
         if (action.state === FINISHED) {
           let res = action.response;
