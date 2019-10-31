@@ -18,7 +18,7 @@ class AddCity extends Component {
     handleAddCity = (e) => {
 
         this.props.addCity({
-            label: this.props.city
+            name: this.props.city
         })
 
         let { history } = this.props;

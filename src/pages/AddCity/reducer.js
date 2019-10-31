@@ -12,10 +12,11 @@ const newCity = (state = defaultState, action) => {
             return state.setIn([action.value], "")
         }
         case actionTypes.ADD_CITY: {
-            const city = fromJS({
-                label: action.label
-            })
-            return state.set('citys', state.get('citys', List()).push(city)).set('city', '');
+            return state
+            // const city = fromJS({
+            //     label: action.label
+            // })
+            // return state.set('citys', state.get('citys', List()).push(city)).set('city', '');
         }
         case actionTypes.FETCH_TOWNS: {
             if(action.state === FINISHED) {

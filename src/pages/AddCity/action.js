@@ -7,7 +7,9 @@ export const actionTypes = {
 export const addCity = (params) => {
     return {
         type: actionTypes.ADD_CITY,
-        label: params.label,
+        request: 'towns',
+        method: 'POST',
+        params
     }
 }
 export const changeField = (params) => {
