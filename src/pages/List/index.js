@@ -5,8 +5,7 @@ import {connect} from 'react-redux';
 import { fetch, get } from './actions';
 import { fetchTowns } from '../AddCity/action'
 
-let dataMapper = {
-    // city: (value) => {debugger},
+const dataMapper = {
     gender: (value) => { return value==='m' ? 'Male' : 'Female'  },
     dateOfBirth: (value) => {return `${value.getFullYear()}-${value.getMonth()+1}-${value.getDate()}`}
 }
