@@ -6,6 +6,9 @@ const createForm = (state = defaultState, action) => {
     case actionTypes.SET_FIELD: {
         return state.setIn([action.key],action.value);
     }
+    case actionTypes.ADD: {
+      return state
+     }
     case actionTypes.CLEAR_FIELD: {
         state = defaultState;
     }

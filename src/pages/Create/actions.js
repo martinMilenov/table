@@ -1,6 +1,7 @@
 export const actionTypes = {
     SET_FIELD: Symbol("SET_FIELD"),
-    CLEAR_FIELD: Symbol("CLEAR_FIELD")
+    ADD: Symbol("ADD"),
+    CLEAR_FIELD: Symbol("CLEAR_FIELD"),
 }
 
 
@@ -12,8 +13,19 @@ export  const setField = (params) => {
     }
 }
 
+export const add = (params) => {
+    return {
+        type: actionTypes.ADD,
+        request: 'persons',
+        method: 'POST',
+        params
+    }
+}
+
 export const clearField = () => {
     return {
         type: actionTypes.CLEAR_FIELD
     }
 }
+
+

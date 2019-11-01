@@ -14,10 +14,10 @@ class AddCity extends Component {
     }
     
 
-    handleAddCity = (e) => {
+    handleAddCity = () => {
 
         this.props.addCity({
-            label: this.props.city
+            name: this.props.city
         })
 
         let { history } = this.props;
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     changeField,
-    addCity
+    addCity,  
 }
 
 
