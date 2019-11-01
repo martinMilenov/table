@@ -27,7 +27,7 @@ class Create extends Component {
             age: parseInt(this.props.age),
             sex: this.props.gender,
             dateOfBirth: new Date(this.props.dateOfBirth).toUTCString(),
-            city: this.props.city, 
+            city: parseInt(this.props.city)
         })
 
         this.props.clearField();
@@ -59,7 +59,7 @@ class Create extends Component {
                     <select name="city" onChange={this.handleChange} value={this.props.city}>
                         <option value="" disabled selected>Select your option</option> 
                         {this.props.citys.map((city, i) => (
-                            <option key={i}>{city.label}</option>
+                            <option key={i} value={city.value}>{city.label}</option>
                        ))}
                        
                     </select>
