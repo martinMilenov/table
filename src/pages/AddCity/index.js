@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {changeField} from './action';
 import {addCity} from './action';
 
-
 class AddCity extends Component {
 
     handleChange = (e) => {
@@ -15,7 +14,7 @@ class AddCity extends Component {
     }
     
 
-    handleAddCity = (e) => {
+    handleAddCity = () => {
 
         this.props.addCity({
             name: this.props.city
@@ -47,8 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     changeField,
-    addCity,
-    
+    addCity,  
 }
 
 

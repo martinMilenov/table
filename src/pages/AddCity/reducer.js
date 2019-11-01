@@ -8,15 +8,11 @@ const newCity = (state = defaultState, action) => {
         case actionTypes.CHANGE_FIELD: {
             return state.setIn([action.key], action.value);
         }
-        case actionTypes.CLEAN_FIELD: {
-            return state.setIn([action.value], "")
-        }
         case actionTypes.ADD_CITY: {
+            if(action.state === FINISHED) {
+                return state.set('city', '')
+            }
             return state
-            // const city = fromJS({
-            //     label: action.label
-            // })
-            // return state.set('citys', state.get('citys', List()).push(city)).set('city', '');
         }
         case actionTypes.FETCH_TOWNS: {
             if(action.state === FINISHED) {
