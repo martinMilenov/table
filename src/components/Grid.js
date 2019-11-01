@@ -31,6 +31,7 @@ class Grid extends Component {
 
     }
 }
+
 Grid.defaultProps = {
     users: [],
     headers: [],

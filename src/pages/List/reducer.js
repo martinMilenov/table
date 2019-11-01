@@ -13,7 +13,7 @@ const list = (state = defaultState, action) => {
               .set('gender', person.get('sex'))
               .deleteIn(['sex']);
           });
-          return state.set('users', res);
+          return state.set('persons', res);
         }
         return state;
       }
