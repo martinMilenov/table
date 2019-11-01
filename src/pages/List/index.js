@@ -71,7 +71,7 @@ class List extends Component {
         return ( 
         <div className="row">
             <Grid data = {this.props.users} headers = {this.state.headers}
-                dataMapper={dataMapper} persons={this.props.persons}
+                dataMapper={dataMapper} 
             />  
             <input className="list-btn" type="button" value="Add" onClick={this.handleAddtoList}/>
         </div >

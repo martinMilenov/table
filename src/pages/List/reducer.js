@@ -1,8 +1,6 @@
 import defaultState from './defaultState';
 import { actionTypes }  from './actions';
-import { fromJS, List } from "immutable"
 import { FINISHED } from '../../constants'
-
 
 const list = (state = defaultState, action) => {
     switch (action.type) {
