@@ -6,7 +6,7 @@ import { addCountry } from './actions';
 
 class AddCountry extends Component {
 
-    handleAddCity = () => {
+    handleAddCountry = () => {
         this.props.addCountry({
             name: this.props.country
         })
@@ -27,7 +27,7 @@ class AddCountry extends Component {
             <div>
                 <form>
                     <input type="text" name="country" placeholder="Add Country" onChange={this.handleChange} value={this.props.country}></input>
-                    <input type="button" value="Add..." onClick={this.handleAddCity}></input>
+                    <input type="button" value="Add..." onClick={this.handleAddCountry}></input>
                 </form>
             </div>
         )

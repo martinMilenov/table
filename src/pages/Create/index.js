@@ -41,7 +41,7 @@ class Create extends Component {
         });   
     }
 
-    changePath = () => {
+    pathToCity = () => {
         
         let { history } = this.props;
         history.push({
@@ -49,7 +49,7 @@ class Create extends Component {
         }); 
     }
 
-    newPath = () => {
+    pathToCountry = () => {
         let { history } = this.props;
         history.push({
             pathname: '/country'
@@ -80,8 +80,8 @@ class Create extends Component {
                        ))}
                        
                     </select>
-                    <input className="addCity" type="button" value="Add..." onClick={this.changePath}/>        
-                    <input className="addCountry" type="button" value="Add..." onClick={this.newPath}/>        
+                    <input className="addCity" type="button" value="Add..." onClick={this.pathToCity}/>        
+                    <input className="addCountry" type="button" value="Add..." onClick={this.pathToCountry}/>        
                 </div>
                 <div className="radio">
                     <input type="radio" name="gender" value="m"  checked={this.props.gender === 'm'} onChange={this.handleChange} />
