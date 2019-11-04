@@ -3,6 +3,7 @@ import XHR from 'xhr-promise';
 import createForm from "./pages/Create/reducer";
 import list from "./pages/List/reducer";
 import newCity from './pages/AddCity/reducer';
+import newCountry from './pages/AddCountry/reducer';
 
 import { fromJS } from 'immutable';
 
@@ -126,4 +127,4 @@ export const requestSendingMiddleware = store => next => action => {
 	});
 };
 
-export default combineReducers({ createForm, list, newCity });
+export default combineReducers({ createForm, list, newCity, newCountry });

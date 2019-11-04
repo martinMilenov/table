@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { fetch, get } from './actions';
 import { fetchTowns } from '../AddCity/action'
+import { fetchCountries } from '../AddCountry/actions';
 
 const dataMapper = {
     gender: (value) => { return value==='m' ? 'Male' : 'Female'  },
@@ -15,6 +16,7 @@ class List extends Component {
         this.props.fetch(); // will get all the towns. try it out ;)
         // this.props.get({townId: 5}); // will get only one town
         this.props.fetchTowns();
+        this.props.fetchCountries();
     }
     constructor(props) {
         super(props);
@@ -55,6 +57,11 @@ class List extends Component {
                     value: 'city',
                     id: 7
                 },
+                {
+                    label: "Country",
+                    value: 'country',
+                    id: 8
+                }
 
             ]
         }; 
@@ -74,7 +81,10 @@ class List extends Component {
             const town = this.props.citys.find(grad => {
                 return grad.id === person.city
             });
-            return { ...person, city: town ? town.label : person.city };
+            const country = this.props.countries.find(country => {
+                return country.id === person.country
+            })
+            return { ...person, city: town ? town.label : person.city, country: country ? country.label : person.country };
         });
 // nachin 2
         // let cities = {};
@@ -100,14 +110,16 @@ const mapStateToProps =(state) => {
     
     return {
         persons: state.list.get('persons').toJS(),
-        citys: state.newCity.get('citys').toJS()
+        citys: state.newCity.get('citys').toJS(),
+        countries: state.newCountry.get('countries').toJS()
     };
 }
 
 const mapDispatchToProps = {
     fetch,
     get,
-    fetchTowns
+    fetchTowns,
+    fetchCountries
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(List));

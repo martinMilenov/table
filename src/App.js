@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import AddCity from "./pages/AddCity";
+import AddCountry from "./pages/AddCountry";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/city">
             <AddCity/>
+          </Route>
+          <Route path="/country">
+            <AddCountry/>
           </Route>
         </Switch>
       </Router>
