@@ -5,11 +5,13 @@ import { setField } from './actions';
 import { add } from './actions';
 import { clearField } from './actions';
 import { fetchTowns } from '../AddCity/action'
+import { fetchCountries } from '../AddCountry/actions'
 
 
 class Create extends Component {
     componentDidMount(){
         this.props.fetchTowns()
+        this.props.fetchCountries()
     }
 
     handleChange = (e) => {
@@ -27,7 +29,8 @@ class Create extends Component {
             age: parseInt(this.props.age),
             sex: this.props.gender,
             dateOfBirth: new Date(this.props.dateOfBirth).toUTCString(),
-            city: parseInt(this.props.city)
+            city: parseInt(this.props.city),
+            country: parseInt(this.props.country)
         })
 
         this.props.clearField();
@@ -38,11 +41,18 @@ class Create extends Component {
         });   
     }
 
-    changePath = () => {
+    pathToCity = () => {
         
         let { history } = this.props;
         history.push({
             pathname: '/city'
+        }); 
+    }
+
+    pathToCountry = () => {
+        let { history } = this.props;
+        history.push({
+            pathname: '/country'
         }); 
     }
 
@@ -57,13 +67,21 @@ class Create extends Component {
                 <input type="number" name="age" placeholder="Age" onChange={this.handleChange} value={this.props.age} />
                 <div className="select">
                     <select name="city" onChange={this.handleChange} value={this.props.city}>
-                        <option value="" disabled selected>Select your option</option> 
+                        <option value="" disabled selected>Select your city</option> 
                         {this.props.citys.map((city, i) => (
                             <option key={i} value={city.value}>{city.label}</option>
                        ))}
                        
                     </select>
-                    <input className="addCity" type="button" value="Add..." onClick={this.changePath}/>        
+                    <select name="country" onChange={this.handleChange} value={this.props.country}>
+                        <option value="" disabled selected>Select your country</option> 
+                        {this.props.countries.map((country, i) => (
+                            <option key={i} value={country.value}>{country.label}</option>
+                       ))}
+                       
+                    </select>
+                    <input className="addCity" type="button" value="Add..." onClick={this.pathToCity}/>        
+                    <input className="addCountry" type="button" value="Add..." onClick={this.pathToCountry}/>        
                 </div>
                 <div className="radio">
                     <input type="radio" name="gender" value="m"  checked={this.props.gender === 'm'} onChange={this.handleChange} />
@@ -86,7 +104,9 @@ const mapStateToProps = (state) => {
         age: state.createForm.get('age'),
         gender: state.createForm.get('gender'),
         city: state.createForm.get('city'),
-        citys: state.newCity.get('citys').toJS(),  
+        country: state.createForm.get('country'),
+        citys: state.newCity.get('citys').toJS(),
+        countries: state.newCountry.get('countries').toJS()  
     }
 }
 
@@ -94,7 +114,8 @@ const mapDispatchToProps = {
     setField,
     add,
     clearField,
-    fetchTowns
+    fetchTowns,
+    fetchCountries
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)( withRouter(Create));

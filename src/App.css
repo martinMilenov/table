@@ -100,7 +100,7 @@ input[type="radio"]:first-child {
 
 input[type="button"] {
   border: none;
-  height: 40px;
+  height: 42px;
   width: 100%;
   background: rgb(37, 151, 189);
   cursor: pointer;
@@ -117,10 +117,11 @@ input[type="button"] {
 .select select {
   display: block;
   width: 250px;
+  margin-top: 25px;
   border: 2px solid steelblue;
   padding: 10px;;
   font-size: inherit;
-  background: khaki;;
+  background: khaki;
 }
 
 .select select:focus{
@@ -129,9 +130,16 @@ input[type="button"] {
 
 .addCity {
   position: relative;
-  width: 80px !important;
-  top: -52px;
-  left: 130px;
+  width: 78px !important;
+  top: -53px;
+  left: 171px;
+}
+
+.addCountry {
+  position: relative;
+  width: 78px !important;
+  top: -121px;
+  left: 91px;
 }
 
 .mainBtn {

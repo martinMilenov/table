@@ -9,6 +9,7 @@ function Nav() {
                 <li><Link to="/list">List</Link></li>
                 <li><Link to="/add">Form</Link></li>
                 <li><Link to="/city">Add/City</Link></li>
+                <li><Link to="/country">Add/Country</Link></li>
             </nav>
         </div>
     )
